@@ -286,8 +286,18 @@ function drop() {
 //drop();
 
 //localStorage
-window.addEventListener("load", getSavedScore);
+if(localStorage["score"] !== null){ 
+  window.addEventListener("load", getSavedScore);
+  function getSavedScore() {
+    savedScore = JSON.parse(localStorage.getItem("score"));
+    previousScore.innerHTML = "Your maximum score: " + savedScore;
+  }
+  }else{
+    previousScore.innerHTML = "Your maximum score: 0";
+  }
+  
+/*window.addEventListener("load", getSavedScore);
 function getSavedScore() {
   savedScore = JSON.parse(localStorage.getItem("score"));
   previousScore.innerHTML = "Your maximum score: " + savedScore;
-}
+}*/
