@@ -3,6 +3,7 @@
 const canvas = document.getElementById("tetris");
 const ctx = canvas.getContext("2d");
 const scoreElement = document.getElementById("score");
+const levelElement = document.getElementById("level");
 
 const ROW = 20;
 const COL = 10;
@@ -11,12 +12,17 @@ const emptySquareColor = "white";
 
 const startButton = document.getElementById("start_btn");
 const reloadButton = document.getElementById("re_btn");
-const gameEnd = document.querySelector(".displayEnd");
+const displayEnd = document.querySelector(".displayEnd");
 const previousScore = document.querySelector(".previousScore");
 
+let dropStart = Date.now();
 let savedScore = 0;
 let score = 0;
+let level = 1;
 let gameOver = false;
+
+scoreElement.innerHTML = `Score: ${score}`;
+levelElement.innerHTML = `Level: ${level}`;
 
 //confetti
 /*const confettiSettings = { target: "my-canvas" };
@@ -190,10 +196,10 @@ class Piece {
         }
         //piece to lock on top = game over
         if (this.y + i <= 0) {
-          // alert("Game Over");
           //stop request animation frame
           gameOver = true;
-          confetti.render();
+          displayEnd.innerHTML = "Game Over!";
+          //confetti.render();
 
           if(score > savedScore) {
             const arrayToStoreInLocalStorage = JSON.stringify(score);
@@ -225,12 +231,16 @@ class Piece {
           board[0][j] = emptySquareColor;
         }
         score += 10;
+        if (score % 100 === 0) {
+          level = level + 1;
+        }
       }
     }
     //update the board
     drawBoard();
     //update the score
-    scoreElement.innerHTML = score;
+    scoreElement.innerHTML = `Score: ${score}`;
+    levelElement.innerHTML = `Level: ${level}`;
   }
 }
 
@@ -261,11 +271,11 @@ function control(event) {
 }
 
 //drop the piece every second
-let dropStart = Date.now();
+
 function drop() {
   let now = Date.now();
   let timeDifference = now - dropStart;
-  if (timeDifference > 1000) {
+  if (timeDifference > 1000 / (level + 1) + 200 ) {
     newPiece.moveDown();
     dropStart = Date.now();
   }

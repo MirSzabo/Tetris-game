@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  
+
   font-family: "Pacifico", cursive;
   background: #7f7fd5; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -58,11 +58,26 @@ h1 {
 }
 
 .counter {
-    font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: center;
+  align-items: stretch;
+  align-content: space-around;
+  font-size: 20px;
 }
 
 .gameSpace {
   position: relative;
+}
+
+.displayEnd {
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 100%;
 }
 
 #my-canvas {
