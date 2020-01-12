@@ -1,0 +1,74 @@
+body {
+  text-align: center;
+  
+  font-family: "Pacifico", cursive;
+  background: #7f7fd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+  font-family: "Pacifico", cursive;
+  font-size: 3em;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.btn {
+  font-family: "Pacifico", cursive;
+  margin: 20px;
+  background-color: #7f7fd5;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  position: relative;
+}
+
+.btn:hover {
+  background: #434343;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
+}
+
+.displayEnd {
+  position: absolute;
+  text-align: center;
+  font-size: 60px;
+  z-index: 1;
+  top: 50%;
+  left: 42%;
+}
+
+.counter {
+    font-size: 20px;
+}
+
+.gameSpace {
+  position: relative;
+}
+
+#my-canvas {
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
