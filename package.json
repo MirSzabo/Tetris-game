@@ -12,6 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "confetti-js": "0.0.16",
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
